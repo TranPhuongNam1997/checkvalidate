@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+	
+</head>
+<body>
+	<div class="container mt-5">
+		<form class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Họ</label>
+				    <input type="text" class="form-control" id="ho" placeholder="Enter họ" maxlength="20">
+				    
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Tên</label>
+				    <input type="text" class="form-control" id="ten" placeholder="Enter tên" maxlength="10">
+				    
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Năm sinh</label>
+				    <input type="text" class="form-control" id="namSinh" placeholder="Enter năm sinh">
+				    
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Gmail</label>
+				    <input type="text" class="form-control" id="gmail" placeholder="Enter gmail">
+				    
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Mật khẩu</label>
+				    <input type="text" class="form-control" id="matKhau" placeholder="Enter mật khẩu">
+				    
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Xác nhận lại mật khẩu</label>
+				    <input type="text" class="form-control" id="xacNhan" placeholder="Enter xác nhận mật khẩu">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Gmail phụ</label>
+				    <input type="text" class="form-control" id="mailPhu" placeholder="Enter xác nhận mật khẩu">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="">Địa chỉ</label>
+				    <input type="text" class="form-control" id="diaChi" placeholder="Enter xác nhận mật khẩu">
+				</div>
+			</div>
+			<div class="col-md-12 text-center">
+				<button class="btn btn-primary" type="button" id="conFirm">Xác nhận</button>
+			</div>
+			
+			
+		</form>
+
+		<div class="d-flex justify-content-between mt-3">
+			<a href="javascript:0;" id="redirect-home">Tới trang chủ</a>
+			<div>
+				<a href="#">Trợ giúp</a>
+				<a href="#">Bảo mật</a>
+				<a href="#">Điều khoản</a>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function(){
+
+			// chuyen huong sang trang chu
+		    var redirecthome = document.getElementById('redirect-home');
+
+		    redirecthome.onclick = function(){
+		   	  window.location.href = "trangchu.html";
+		    }
+
+
+		    // khai bao gia trị các input 
+			var hoVl = document.getElementById('ho');
+			var tenVl = document.getElementById('ten').value;
+			var namSinhVl = document.getElementById('namSinh').value;
+			var gmailvl = document.getElementById('gmail').value;
+			var matKhauvl = document.getElementById('matKhau').value;
+			var xacNhanvl = document.getElementById('xacNhan').value;
+			var mailPhuvl = document.getElementById('mailPhu').value;
+			var diaChuvl = document.getElementById('diaChi').value;
+			var conFirm = document.getElementById('conFirm');
+
+			conFirm.onclick = function(){
+				console.log(hoVl);
+			}
+
+		});
+	</script>
+</body>
+</html>
