@@ -55,19 +55,20 @@
 				<div class="form-group">
 				    <label for="">Mật khẩu</label>
 				    <input type="text" class="form-control" id="matKhau" placeholder="Nhập mật khẩu">
-				    
+				    <p class="error" id="er-matkhaunotnull">Không được để trống</p>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 				    <label for="">Xác nhận lại mật khẩu</label>
-				    <input type="text" class="form-control" id="xacNhan" placeholder="Nhập xác nhận mật khẩu">
+				    <input type="text" class="form-control" id="xacNhan" placeholder="Nhập xác nhận mật khẩu" onblur="checkXacNhan()">
+				    <p class="error" id="er-xacnhan">Mật khẩu không trùng với mật khẩu trên</p>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 				    <label for="">Gmail phụ</label>
-				    <input type="text" class="form-control" id="mailPhu" placeholder="Nhập xác nhận mật khẩu" onblur="checkGmailPhu()">
+				    <input type="text" class="form-control" id="mailPhu" placeholder="Nhập Gmail phụ" onblur="checkGmailPhu()">
 					<p class="error" id="er-mailphu">Tài khoản không đúng định dạng</p>
 		    		<p class="error" id="er-mailphunotnull">Không được để trống</p>
 				</div>
@@ -75,19 +76,19 @@
 			<div class="col-md-4">
 				<div class="form-group">
 				    <label for="">Địa chỉ</label>
-				    <input type="text" class="form-control" id="diaChi" placeholder="Nhập xác nhận mật khẩu">
+				    <input type="text" class="form-control" id="diaChi" placeholder="Nhập đia chỉ">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 				    <label for="">Tài khoản</label>
-				    <input type="text" class="form-control" id="taiKhoanchild" placeholder="Nhập xác nhận mật khẩu">
+				    <input type="text" class="form-control" id="taiKhoanchild" placeholder="Nhập tài khoản">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 				    <label for="">Số điện thoại</label>
-				    <input type="text" class="form-control" id="soDienThoai" placeholder="Nhập xác nhận mật khẩu">
+				    <input type="text" class="form-control" id="soDienThoai" placeholder="Nhập số điện thoại">
 				</div>
 			</div>
 			
@@ -101,9 +102,9 @@
 		<div class="d-flex justify-content-between mt-3">
 			<a href="javascript:0;" id="redirect-home">Tới trang chủ</a>
 			<div>
-				<a href="#">Trợ giúp</a>
-				<a href="#">Bảo mật</a>
-				<a href="#">Điều khoản</a>
+				<a class="ml-3" href="https://www.google.com/" target="_blank">Trợ giúp</a>
+				<a class="ml-3" href="https://www.google.com/" target="_blank">Bảo mật</a>
+				<a class="ml-3" href="https://www.google.com/" target="_blank">Điều khoản</a>
 			</div>
 		</div>
 	</div>
@@ -123,8 +124,8 @@
 			var tenVl = document.getElementById('ten');
 			var namSinhVl = document.getElementById('namSinh');
 			var gmailVl = document.getElementById('gmail');
-			// var matKhauvl = document.getElementById('matKhau').value;
-			// var xacNhanvl = document.getElementById('xacNhan').value;
+			var matKhauVl = document.getElementById('matKhau');
+			var xacNhanVl = document.getElementById('xacNhan');
 			var mailPhuVl = document.getElementById('mailPhu');
 			// var diaChuvl = document.getElementById('diaChi').value;
 			// var conFirmx = document.getElementById('conFirm');
@@ -207,6 +208,18 @@
 			}
 
 
+			//kiem tra mat khau
+			function checkXacNhan(){
+				if(matKhauVl.value === xacNhanVl.value){
+					document.getElementById("er-xacnhan").style.display = "none";
+				}
+				else
+				{
+				    document.getElementById("er-xacnhan").style.display = "block";
+				} 
+			}
+
+
 
 			function checkInput(){
 				checkHo();
@@ -214,6 +227,7 @@
 				checkNamSinh();
 				checkGmail();
 				checkGmailPhu();
+				checkXacNhan();
 			}
 			
 
