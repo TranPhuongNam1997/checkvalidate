@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +33,7 @@
 		    <p class="error" id="er-password">Không được để trống</p>
 		  </div>
 		  <div class="text-center">
-		  	<button type="button" class="btn btn-primary w-100" onclick="checkLogin()">Đăng nhập</button>
+		  	<button type="button" class="btn btn-primary w-100" id="login">Đăng nhập</button>
 		  </div>
 		</form>
 		<div class="d-flex justify-content-between align-items-center mt-3">
@@ -57,7 +58,7 @@
 		function checkLogin() {
 			checkAccount();
 			checkPassword();
-			if(accountVl.value === taiKhoan.gmail){
+			if(accountVl.value == taiKhoan.gmail){
 				window.location.href = "chitiet.html";
 			}
 		   	else{
@@ -101,22 +102,71 @@
 
 
 		//tao doi tuong cho trang bang constructor
-		class taiKhoan{
-			constructor(ho,ten,namSinh,gmail,matKhau,gmailPhu,diaChi,soDt){
-				this.ho = ho;
-				this.ten = ten;
-				this.namSinh = namSinh;
-				this.gmail = gmail;
-				this.matKhau = matKhau;
-				this.gmailPhu = gmailPhu;
-				this.diaChi = diaChi;
-				this.soDt = soDt;
-			}
-		}
-		var taiKhoan1 = new taiKhoan('Trần','Nam','1997','nam@gmail.com','123456','hihi@gmail.com','Thái Bình','0976809926');
-		var taiKhoan2 = new taiKhoan('Ngụy','Minh','1998','minh@gmail.com','12345678','hehe@gmail.com','Bắc Giang','123456789');
+		// class taiKhoan{
+		// 	constructor(ho,ten,namSinh,gmail,matKhau,gmailPhu,diaChi,soDt){
+		// 		this.ho = ho;
+		// 		this.ten = ten;
+		// 		this.namSinh = namSinh;
+		// 		this.gmail = gmail;
+		// 		this.matKhau = matKhau;
+		// 		this.gmailPhu = gmailPhu;
+		// 		this.diaChi = diaChi;
+		// 		this.soDt = soDt;
+		// 	}
+		// }
+		// var taiKhoan1 = new taiKhoan('Trần','Nam','1997','nam@gmail.com','123456','hihi@gmail.com','Thái Bình','0976809926');
+		// var taiKhoan2 = new taiKhoan('Ngụy','Minh','1998','minh@gmail.com','12345678','hehe@gmail.com','Bắc Giang','123456789');
 		
-		var danhSachTaiKhoan = [ taiKhoan1, taiKhoan2];
+		// var danhSachTaiKhoan = [ taiKhoan1, taiKhoan2];
+
+
+		var login = document.getElementById('login');
+		//lay du lieu
+		//lay ve chuoi string tu localstorage
+		var laydulieu = localStorage.getItem("itemaccount");
+
+		//convert chuoi string thanh json
+		var convertdulieu = JSON.parse(laydulieu);
+
+		login.onclick=function(){
+			if( (accountVl.value == convertdulieu.taikhoan && passwordVl.value == convertdulieu.matKhau) 
+				|| (accountVl.value == convertdulieu.gmail && passwordVl.value == convertdulieu.matKhau )){
+
+				window.location.href = "chitiet.html";
+
+
+				var dtlogin = JSON.stringify(convertdulieu);
+
+				localStorage.setItem('thongtinlogin',dtlogin);
+
+			
+
+
+			}
+			else{
+				console.log("login lose")
+
+			}
+
+			// if( accountVl.value == convertdulieu.taikhoan || (accountVl.value == convertdulieu.gmail )
+			// {
+			// 	if (passwordVl.value == convertdulieu.matKhau ) {
+			// 		console.log("Login wwin")
+			// 	}
+			// 	else{
+			// 		console.log("login lose")
+			// 	}
+				
+			// }
+			// else{
+			// 	console.log("login lose")
+				
+			// }
+
+
+
+		}
+
 	</script>
 </body>
 </html>
