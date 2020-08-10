@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
+	<script type="text/javascript" src="script.js"></script>
 	<style>
 		.error-ho{
 			color: blue;
@@ -112,58 +112,58 @@
 	</div>
 	
 	<script>
-		document.addEventListener('DOMContentLoaded',function(){
-			// chuyen huong sang trang chu
-			var redirecthome = document.getElementById('redirect-home');
+		// document.addEventListener('DOMContentLoaded',function(){
+		// 	// chuyen huong sang trang chu
+		// 	var redirecthome = document.getElementById('redirect-home');
 
-			redirecthome.onclick = function(){
-				window.location.href = "trangchu.html";
-			}
+		// 	redirecthome.onclick = function(){
+		// 		window.location.href = "trangchu.html";
+		// 	}
 
 
-		    // khai bao gia trị các input 
-		    var hoVl = document.getElementById('ho');
-		    var tenVl = document.getElementById('ten');
-		    var namSinhVl = document.getElementById('namSinh');
-		    var gmailVl = document.getElementById('gmail');
-		    var matKhauVl = document.getElementById('matKhau');
-		    var xacNhanVl = document.getElementById('xacNhan');
-		    var mailPhuVl = document.getElementById('mailPhu');
-		    var diaChuvl = document.getElementById('diaChi');
-		    var taikhoanvl = document.getElementById('taiKhoanchild');
-		    var sodtvl = document.getElementById('soDienThoai');
-		    var conFirmx = document.getElementById('conFirm');
+		//     // khai bao gia trị các input 
+		//     var hoVl = document.getElementById('ho');
+		//     var tenVl = document.getElementById('ten');
+		//     var namSinhVl = document.getElementById('namSinh');
+		//     var gmailVl = document.getElementById('gmail');
+		//     var matKhauVl = document.getElementById('matKhau');
+		//     var xacNhanVl = document.getElementById('xacNhan');
+		//     var mailPhuVl = document.getElementById('mailPhu');
+		//     var diaChuvl = document.getElementById('diaChi');
+		//     var taikhoanvl = document.getElementById('taiKhoanchild');
+		//     var sodtvl = document.getElementById('soDienThoai');
+		//     var conFirmx = document.getElementById('conFirm');
 		
-		    // khuan mau
-		    class taiKhoan{
-		    	constructor(id,ho,ten,namSinh,gmail,matKhau,gmailPhu,diaChi,taikhoan,soDt){
-		    		this.id = id;
-		    		this.ho = ho;
-		    		this.ten = ten;
-		    		this.namSinh = namSinh;
-		    		this.gmail = gmail;
-		    		this.matKhau = matKhau;
-		    		this.gmailPhu = gmailPhu;
-		    		this.diaChi = diaChi;
-		    		this.taikhoan = taikhoan;
-		    		this.soDt = soDt;
-		    	}
+		//     // khuan mau
+		//     class taiKhoan{
+		//     	constructor(id,ho,ten,namSinh,gmail,matKhau,gmailPhu,diaChi,taikhoan,soDt){
+		//     		this.id = id;
+		//     		this.ho = ho;
+		//     		this.ten = ten;
+		//     		this.namSinh = namSinh;
+		//     		this.gmail = gmail;
+		//     		this.matKhau = matKhau;
+		//     		this.gmailPhu = gmailPhu;
+		//     		this.diaChi = diaChi;
+		//     		this.taikhoan = taikhoan;
+		//     		this.soDt = soDt;
+		//     	}
 
-		    }
+		//     }
 
 
-			conFirmx.onclick = function(){
-				// doi tuong cu the
-				var taikhoan1 = new taiKhoan(1,hoVl.value,tenVl.value,namSinhVl.value,gmailVl.value,matKhauVl.value,mailPhuVl.value,diaChuvl.value,taikhoanvl.value,sodtvl.value);
+		// 	conFirmx.onclick = function(){
+		// 		// doi tuong cu the
+		// 		var taikhoan1 = new taiKhoan(1,hoVl.value,tenVl.value,namSinhVl.value,gmailVl.value,matKhauVl.value,mailPhuVl.value,diaChuvl.value,taikhoanvl.value,sodtvl.value);
 
-				//json duoc luu tru duoi dang string
-				var newJSON = JSON.stringify(taikhoan1);
+		// 		//json duoc luu tru duoi dang string
+		// 		var newJSON = JSON.stringify(taikhoan1);
 
-				localStorage.setItem('itemaccount',newJSON);
+		// 		localStorage.setItem('itemaccount',newJSON);
 
-			}
+		// 	}
 
-		});
+		// });
 		// function checkInput(){
 		// 		// checkHo();
 		// 		// checkTen();

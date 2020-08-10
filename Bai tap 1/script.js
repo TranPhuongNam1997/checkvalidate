@@ -36,7 +36,7 @@
 				diaChi: 'nb',
 				taikhoan:'trandaica',
 				soDt: '0976809928'
-			},
+			}
 			
 			];
 			return taikhoan1;
@@ -49,34 +49,54 @@
 		// 	}
 		// }
 
- 			// khuan mau
-		    class taiKhoan{
-		    	constructor(id,ho,ten,namSinh,gmail,matKhau,gmailPhu,diaChi,taikhoan,soDt){
-		    		this.id = id;
-		    		this.ho = ho;
-		    		this.ten = ten;
-		    		this.namSinh = namSinh;
-		    		this.gmail = gmail;
-		    		this.matKhau = matKhau;
-		    		this.gmailPhu = gmailPhu;
-		    		this.diaChi = diaChi;
-		    		this.taikhoan = taikhoan;
-		    		this.soDt = soDt;
-		    	}
-		    }
+		// khuan mau
+	    class taiKhoan{
+	    	constructor(id,ho,ten,namSinh,gmail,matKhau,gmailPhu,diaChi,taikhoan,soDt){
+	    		this.id = id;
+	    		this.ho = ho;
+	    		this.ten = ten;
+	    		this.namSinh = namSinh;
+	    		this.gmail = gmail;
+	    		this.matKhau = matKhau;
+	    		this.gmailPhu = gmailPhu;
+	    		this.diaChi = diaChi;
+	    		this.taikhoan = taikhoan;
+	    		this.soDt = soDt;
+	    	}
+	    }
 
+	    // cu load lai trang no se chay vao day dung chua
 		document.addEventListener('DOMContentLoaded',function(){
 		
-			var list = getData();
+			if (localStorage.getItem("ListAccount") == null) {
 
-			localStorage.setItem("ListAccount",list);
-			console.log(localStorage.getItem("ListAccount"))
+	    		// Khoi tao list data ban dau
+				var list = getData();
+				var newJSON = JSON.stringify(list);
+				localStorage.setItem("ListAccount",newJSON);
+				
+			}
+		
+ 			HanhDongDangNhap();
 			HanhDongDangKi();
+
+			
+
+			// HanhDongChiTiet();
 			
 		});
 
+		// js xu ly cho man hinh dang nhap
+		function HanhDongDangNhap(){
+
+			var danhSachTaiKhoanCuaHeThong = JSON.parse(localStorage.getItem("ListAccount"));
+			console.log(danhSachTaiKhoanCuaHeThong)
+
+		}
+
+		// js xu ly cho man hinh dang ki
 		function HanhDongDangKi(){
-			console.log("laod")
+			
 				// chuyen huong sang trang chu
 			var redirecthome = document.getElementById('redirect-home');
 
@@ -102,14 +122,38 @@
 
 
 			conFirmx.onclick = function(){
+				//B1 tao doi tuong
 				// doi tuong cu the
-				var taikhoan1 = new taiKhoan(1,hoVl.value,tenVl.value,namSinhVl.value,gmailVl.value,matKhauVl.value,mailPhuVl.value,diaChuvl.value,taikhoanvl.value,sodtvl.value);
+				var taikhoanNew = new taiKhoan(1,hoVl.value,tenVl.value,namSinhVl.value,gmailVl.value,matKhauVl.value,mailPhuVl.value,diaChuvl.value,taikhoanvl.value,sodtvl.value);
+
+				// cach khoi tao 2
+				// var taikhoanNew = new taiKhoan();
+
+				// taikhoanNew.Namsainh =namSinhVl.value;
+				// .....
 
 				//json duoc luu tru duoi dang string
-				var newJSON = JSON.stringify(taikhoan1);
+				var newJSON = JSON.stringify(taikhoanNew);
 
-				// localStorage.setItem('itemaccount',newJSON);
-				// console.log(msg)
+
+				// b2 lay danh sach db tu localstoge
+
+				var danhSachTaiKhoanCuaHeThong = JSON.parse(localStorage.getItem("ListAccount"));
+				// console.log(danhSachTaiKhoan)
+
+
+				taikhoanNew.id=danhSachTaiKhoanCuaHeThong.length+1;  // id = [so phan tu cua danh sach] + 1 
+				// b3 add taikhoanNew vao danh db
+				danhSachTaiKhoanCuaHeThong.push(taikhoanNew);
+
+				var listUpdate = JSON.stringify(danhSachTaiKhoanCuaHeThong);
+				localStorage.removeItem("ListAccount");
+				localStorage.setItem("ListAccount",listUpdate);
+				console.log("dangki thanh cong");
+
+				var danhSachTaiKhoanCuaHeThong2 = JSON.parse(localStorage.getItem("ListAccount"));
+				console.log(danhSachTaiKhoanCuaHeThong2)
+
 
 
 			}
