@@ -83,7 +83,7 @@
 			redirecthome.onclick = function(){
 				window.location.href = "trangchu.html";
 			}
-
+			//test
 
 		    // khai bao gia trị các input 
 		    var hoVl = document.getElementById('ho');
