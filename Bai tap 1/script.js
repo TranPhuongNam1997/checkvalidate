@@ -37,7 +37,6 @@
 				taikhoan:'trandaica',
 				soDt: '0976809928'
 			}
-			
 			];
 			return taikhoan1;
 		}
@@ -77,20 +76,67 @@
 				
 			}
 		
- 			HanhDongDangNhap();
+			HanhDongDangNhap();
+			//HanhDongChiTiet();
 			HanhDongDangKi();
-
 			
-
-			// HanhDongChiTiet();
 			
 		});
+
+
 
 		// js xu ly cho man hinh dang nhap
 		function HanhDongDangNhap(){
 
 			var danhSachTaiKhoanCuaHeThong = JSON.parse(localStorage.getItem("ListAccount"));
-			console.log(danhSachTaiKhoanCuaHeThong)
+			console.log(danhSachTaiKhoanCuaHeThong);
+
+				//khai bao bien
+		
+		document.getElementById("login").onclick=function(){
+			var accountVl = document.getElementById("inputAccount").value;
+			var passwordVl = document.getElementById("inputPassword").value;
+			// /// cach 1
+			// for (var i = 0; i < danhSachTaiKhoanCuaHeThong.length; i++) {
+
+			// 	var taikhoanHienTai = danhSachTaiKhoanCuaHeThong[i];
+			// 	if (taikhoanHienTai.gmail == accountVl || taikhoanHienTai.taikhoan == accountVl) {
+			// 		if (taikhoanHienTai.matKhau == passwordVl) {
+			// 			console.log("Oke")
+			// 			// chuyen tran la xong
+			// 			return;
+			// 		}
+			// 	}
+				
+			// }
+			// console.log("Not Oke")// show messsage tai khoan mat khau ko dung
+
+			/// Cach 2
+
+			var taiKhoan = danhSachTaiKhoanCuaHeThong.find(taiKhoan => (taiKhoan.gmail == accountVl && taiKhoan.matKhau == passwordVl ) ||  (taiKhoan.taikhoan == accountVl && taiKhoan.matKhau == passwordVl)); // tra ve doi tuong
+			
+			if (taiKhoan == undefined) {
+
+				console.log("Not Oke")// show messsage tai khoan mat khau ko dung Nam tu xur ly
+			}
+			else{
+				var taiKhoanJson = JSON.stringify(taiKhoan);
+				localStorage.setItem("AccountLoginNow",taiKhoanJson);
+				window.location.href = "chitiet.html";
+			}
+
+		}
+		
+
+
+		}
+
+		// js xu ly cho man hinh Chi tiet
+		function HanhDongChiTiet(){
+
+			
+		
+		
 
 		}
 
@@ -98,6 +144,7 @@
 		function HanhDongDangKi(){
 			
 				// chuyen huong sang trang chu
+
 			var redirecthome = document.getElementById('redirect-home');
 
 			redirecthome.onclick = function(){
@@ -149,7 +196,7 @@
 				var listUpdate = JSON.stringify(danhSachTaiKhoanCuaHeThong);
 				localStorage.removeItem("ListAccount");
 				localStorage.setItem("ListAccount",listUpdate);
-				console.log("dangki thanh cong");
+				console.log("dangki thanh cong"); // thay bang di chuyen urrl den trang dang nhap
 
 				var danhSachTaiKhoanCuaHeThong2 = JSON.parse(localStorage.getItem("ListAccount"));
 				console.log(danhSachTaiKhoanCuaHeThong2)
@@ -160,3 +207,4 @@
 
 
 		}
+		

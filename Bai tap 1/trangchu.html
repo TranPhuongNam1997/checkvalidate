@@ -43,61 +43,61 @@
 	</div>
 	
 	<script>
-		//khai bao bien
-		var accountVl = document.getElementById("inputAccount");
-		var passwordVl = document.getElementById("inputPassword");
+		// //khai bao bien
+		// var accountVl = document.getElementById("inputAccount");
+		// var passwordVl = document.getElementById("inputPassword");
 
 
-		// chuyen huong den trang dang ky
-		var redirectregis = document.getElementById('create-ac');
-	    redirectregis.onclick = function(){
-	   		window.location.href = "dangky.html";
-	   		// window.open("C:/Users/Nam/Desktop/checkvalidate/checkvalidate/Bai tap 1/dangky.html.html", "_blank");
-	    }
+		// // chuyen huong den trang dang ky
+		// var redirectregis = document.getElementById('create-ac');
+	 //    redirectregis.onclick = function(){
+	 //   		window.location.href = "dangky.html";
+	 //   		// window.open("C:/Users/Nam/Desktop/checkvalidate/checkvalidate/Bai tap 1/dangky.html.html", "_blank");
+	 //    }
 
-		function checkLogin() {
-			checkAccount();
-			checkPassword();
-			if(accountVl.value == taiKhoan.gmail){
-				window.location.href = "chitiet.html";
-			}
-		   	else{
-		   		alert('tai khoan khong dung')
-		   	}
+		// function checkLogin() {
+		// 	checkAccount();
+		// 	checkPassword();
+		// 	if(accountVl.value == taiKhoan.gmail){
+		// 		window.location.href = "chitiet.html";
+		// 	}
+		//    	else{
+		//    		alert('tai khoan khong dung')
+		//    	}
 
-		}
+		// }
 
-		// ham kiem tra tai khoan
+		// // ham kiem tra tai khoan
 
-		function checkAccount(){
+		// function checkAccount(){
 			
-			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		// 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-			if(accountVl.value == ""){
-				document.getElementById("er-accountnotnull").style.display = "block";
-				document.getElementById("er-account").style.display = "none";
-			}
+		// 	if(accountVl.value == ""){
+		// 		document.getElementById("er-accountnotnull").style.display = "block";
+		// 		document.getElementById("er-account").style.display = "none";
+		// 	}
 			
-			else if(!re.test(accountVl.value) &&  accountVl.value != "") {
-				document.getElementById("er-accountnotnull").style.display = "none";
-			    document.getElementById("er-account").style.display = "block";
-			} 
+		// 	else if(!re.test(accountVl.value) &&  accountVl.value != "") {
+		// 		document.getElementById("er-accountnotnull").style.display = "none";
+		// 	    document.getElementById("er-account").style.display = "block";
+		// 	} 
 			
-			else {
-			    document.getElementById("er-accountnotnull").style.display = "none";
-			    document.getElementById("er-account").style.display = "none";
-			}
-		}
-		//ham kiem tra mat khau
-		function checkPassword(){
-			if (passwordVl.value == "") {
-			    document.getElementById("er-password").style.display = "block";
-			} 
+		// 	else {
+		// 	    document.getElementById("er-accountnotnull").style.display = "none";
+		// 	    document.getElementById("er-account").style.display = "none";
+		// 	}
+		// }
+		// //ham kiem tra mat khau
+		// function checkPassword(){
+		// 	if (passwordVl.value == "") {
+		// 	    document.getElementById("er-password").style.display = "block";
+		// 	} 
 
-			else {
-			    document.getElementById("er-password").style.display = "none";
-			}
-		}
+		// 	else {
+		// 	    document.getElementById("er-password").style.display = "none";
+		// 	}
+		// }
 
 
 
@@ -120,33 +120,33 @@
 		// var danhSachTaiKhoan = [ taiKhoan1, taiKhoan2];
 
 
-		var login = document.getElementById('login');
-		//lay du lieu
-		//lay ve chuoi string tu localstorage
-		var laydulieu = localStorage.getItem("itemaccount");
+		// var login = document.getElementById('login');
+		// //lay du lieu
+		// //lay ve chuoi string tu localstorage
+		// var laydulieu = localStorage.getItem("itemaccount");
 
-		//convert chuoi string thanh json
-		var convertdulieu = JSON.parse(laydulieu);
+		// //convert chuoi string thanh json
+		// var convertdulieu = JSON.parse(laydulieu);
 
-		login.onclick=function(){
-			if( (accountVl.value == convertdulieu.taikhoan && passwordVl.value == convertdulieu.matKhau) 
-				|| (accountVl.value == convertdulieu.gmail && passwordVl.value == convertdulieu.matKhau )){
+		// login.onclick=function(){
+		// 	if( (accountVl.value == convertdulieu.taikhoan && passwordVl.value == convertdulieu.matKhau) 
+		// 		|| (accountVl.value == convertdulieu.gmail && passwordVl.value == convertdulieu.matKhau )){
 
-				window.location.href = "chitiet.html";
+		// 		window.location.href = "chitiet.html";
 
 
-				var dtlogin = JSON.stringify(convertdulieu);
+		// 		var dtlogin = JSON.stringify(convertdulieu);
 
-				localStorage.setItem('thongtinlogin',dtlogin);
+		// 		localStorage.setItem('thongtinlogin',dtlogin);
 
 			
 
 
-			}
-			else{
-				console.log("login lose")
+		// 	}
+		// 	else{
+		// 		console.log("login lose")
 
-			}
+		// 	}
 
 			// if( accountVl.value == convertdulieu.taikhoan || (accountVl.value == convertdulieu.gmail )
 			// {
@@ -165,7 +165,7 @@
 
 
 
-		}
+		// }
 
 	</script>
 </body>
