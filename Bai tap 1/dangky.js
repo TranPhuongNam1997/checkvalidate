@@ -1,3 +1,9 @@
+// cu load lai trang no se chay vao day dung chua
+	document.addEventListener('DOMContentLoaded',function(){
+		HanhDongDangKi();
+		
+	});
+
 // js xu ly cho man hinh dang ki
 		function HanhDongDangKi(){
 			

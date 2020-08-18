@@ -56,20 +56,19 @@
 
 		}
 
+		 // var accountVl = null;
+		 // var passwordVl = null;
+
 		document.addEventListener('DOMContentLoaded',function(){
-		
 			HanhDongDangNhap();
 
-			
+			 accountVl = document.getElementById("inputAccount");
+			 passwordVl = document.getElementById("inputPassword");
 
-
-			
-			
+			 document.getElementById('create-ac').onclick = function(){
+				window.location.href = "dangky.html";
+			};
 		});
-
-		//khai bao bien
-		var accountVl = document.getElementById("inputAccount");
-		var passwordVl = document.getElementById("inputPassword");
 
 
 		//ham kiem tra tai khoan

@@ -1,3 +1,5 @@
+// File scrpit common
+
 //khai bao ham chua doi tuong
 		function getData(){
 			var taikhoan1 = [
@@ -75,25 +77,14 @@
 				localStorage.setItem("ListAccount",newJSON);
 				
 			}
-			document.getElementById('create-ac').onclick = function(){
-				window.location.href = "dangky.html";
-			}
+
+			
 		
-			HanhDongDangNhap();
+			//HanhDongDangNhap();
 			//HanhDongChiTiet();
-			HanhDongDangKi();
+			//HanhDongDangKi();
 			
 			
 		});
-
-		// js xu ly cho man hinh Chi tiet
-		function HanhDongChiTiet(){
-
-			
-		
-		
-
-		}
-
 		
 		
