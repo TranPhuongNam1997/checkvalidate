@@ -68,13 +68,15 @@
 
 	    // cu load lai trang no se chay vao day dung chua
 		document.addEventListener('DOMContentLoaded',function(){
-		
+			//localStorage.removeItem("ListAccount");
 			if (localStorage.getItem("ListAccount") == null) {
 
 	    		// Khoi tao list data ban dau
 				var list = getData();
 				var newJSON = JSON.stringify(list);
 				localStorage.setItem("ListAccount",newJSON);
+
+
 				
 			}
 

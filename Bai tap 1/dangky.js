@@ -50,7 +50,7 @@
 				// b2 lay danh sach db tu localstoge
 
 				var danhSachTaiKhoanCuaHeThong = JSON.parse(localStorage.getItem("ListAccount"));
-				// console.log(danhSachTaiKhoan)
+				console.log(danhSachTaiKhoanCuaHeThong)
 
 
 				taikhoanNew.id=danhSachTaiKhoanCuaHeThong.length+1;  // id = [so phan tu cua danh sach] + 1 
