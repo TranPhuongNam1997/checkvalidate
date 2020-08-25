@@ -89,7 +89,7 @@
 
 				tk.matKhau = mkMoi.value;
 
-				danhSachTaiKhoanCuaHeThong3.push(tk);
+				// danhSachTaiKhoanCuaHeThong3.push(tk);
 
 				localStorage.removeItem("ListAccount");
 				// localStorage.setItem("ListAccount",listUpdate);
@@ -99,12 +99,10 @@
 
 
 
-				var danhSachTaiKhoanCuaHeThong4 = JSON.parse(localStorage.getItem("ListAccount"));
-				console.log(danhSachTaiKhoanCuaHeThong4);
+				
 			}
-			
-
-
+			var danhSachTaiKhoanCuaHeThong4 = JSON.parse(localStorage.getItem("ListAccount"));
+			console.log(danhSachTaiKhoanCuaHeThong4);
 
 		});
 		
