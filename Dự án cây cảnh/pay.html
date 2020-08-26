@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header class="header mb-5">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="#"><img src="https://images.creativemarket.com/0.1.0/ps/7001518/1820/1214/m1/fpnw/wm0/preview-.jpg?1568963626&s=052e3dd852992e746dfc32d46db47c66" alt="ảnh" style="width: 100px;"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Cây cảnh
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Cây cảnh 1</a>
+								<a class="dropdown-item" href="#">Cây cảnh 2</a>
+								<a class="dropdown-item" href="#">Cây cảnh 3</a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Liên hệ</a>
+						</li>
+						
+						
+					</ul>
+					<form class="form-inline my-2 my-lg-0">
+
+						<button class="btn-pay btn btn-primary ml-2"><i class="fas fa-car"></i> Giỏ hàng: 0</button>
+					</form>
+				</div>
+			</nav>
+			<!-- end nav -->
+		</div>
+		<!-- end container -->
+		
+	</header>
+	<main class="main">
+		<div class="container">
+			<h3 class="mb-3">Danh sách sản phẩm trong giỏ hàng</h3>
+			<table class="table">
+			  <thead class="thead-light">
+			    <tr>
+			      <th scope="col">STT</th>
+			      <th scope="col">Hình ảnh</th>
+			      <th scope="col">Tên sản phẩm</th>
+			      <th scope="col">Đơn giá</th>
+			      <th scope="col">Số lượng</th>
+			      <th scope="col">Thành tiền</th>
+			      <th scope="col">Xóa</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Hình ảnh 1</td>
+			      <th scope="col">Tên sản phẩm 1</th>
+			      <th scope="col">Đơn giá 1</th>
+			      <th scope="col">Số lượng 1</th>
+			      <th scope="col">Thành tiền 1</th>
+			      <th scope="col"><button class="btn btn-danger">Xóa</button></th>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Hình ảnh 2</td>
+			      <th scope="col">Tên sản phẩm 2</th>
+			      <th scope="col">Đơn giá 2</th>
+			      <th scope="col">Số lượng 2</th>
+			      <th scope="col">Thành tiền 2</th>
+			      <th scope="col"><button class="btn btn-danger">Xóa</button></th>
+			    </tr>
+			    
+			    
+			  </tbody>
+			</table>
+		</div>	
+	</main>
+</body>
+</html>
