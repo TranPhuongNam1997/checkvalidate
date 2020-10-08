@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
 	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	
 	<script src="script-main.js"></script>
@@ -27,7 +27,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="#" id="gohome">Trang chủ <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +49,7 @@
 						<input class="form-control mr-sm-4" type="search" placeholder="Nhập tìm kiếm..." id="ip-search" aria-label="Search">
 						<button class="btn btn-outline-success my-2 my-sm-0" type="button" id="btnTimKiem">Tìm kiếm</button>
 
-						<button class="btn-pay btn btn-primary ml-2"><i class="fas fa-car"></i> Giỏ hàng: 0</button>
+						<button class="btn-pay btn btn-primary ml-2" type="button" id="show-cart"><i class="fas fa-car"></i> <span id="number-cart">Giỏ hàng: 0</span></button>
 					</form>
 				</div>
 			</nav>
@@ -67,9 +67,6 @@
 				
 				
 				
-				
-				
-				
 			</div>
 			<!-- end row -->
 			
@@ -78,5 +75,8 @@
 	<footer  class="footer">
 		
 	</footer>
+	<script>
+		
+	</script>
 </body>
 </html>

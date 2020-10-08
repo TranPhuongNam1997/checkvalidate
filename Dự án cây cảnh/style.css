@@ -8,3 +8,10 @@ img.card-img-top {
     height: 300px;
     object-fit: cover;
 }
+#listCart img{
+	width: 100px;
+}
+
+#listCart td{
+	vertical-align: middle;
+}
