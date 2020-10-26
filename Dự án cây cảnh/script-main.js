@@ -25,7 +25,14 @@ function getDuLieu(){
 			tencay: "cây si",
 			gia: "500000",
 			linkanh: "https://tin.nhadat.net/assets/uploads/2017/09/y_nghia_cua_cay_si_1.jpg"
+		},
+		{
+			id: 5,
+			tencay: "cây Sen đá",
+			gia: "500000",
+			linkanh: "https://tin.nhadat.net/assets/uploads/2017/09/y_nghia_cua_cay_si_1.jpg"
 		}
+
 		
 	];
 	return cayCanh;

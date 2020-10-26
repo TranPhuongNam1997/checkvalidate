@@ -1,32 +1,13 @@
 
 
 document.addEventListener('DOMContentLoaded',function(){
-
-
-
 	// lay ve danh sach cay canh tu localstorage
 	var layDanhSachCay = JSON.parse(localStorage.getItem("danhSachCayCanh"));
 	console.log(layDanhSachCay);
 	var blockcaycanh = document.getElementById('block-caycanh');
 
 	//in tat ca cay canh ra man hinh
-	for (var i = 0; i < layDanhSachCay.length; i++) {
-		var itemcaycanh = layDanhSachCay[i];
-
-		var itemcayHTML = `
-			<div class="col-md-4 item-caycanh mt-4">
-				<div class="card">
-					<img class="card-img-top" src="${itemcaycanh.linkanh}" alt="ảnh">
-					<div class="card-body">
-						<h5 class="card-title">${itemcaycanh.tencay}</h5>
-						<p class="card-text">Giá bán: ${itemcaycanh.gia}</p>
-						<a href="javascript:0;" class="btn btn-primary addtocart" onclick="coutUp()">Thêm vào giỏ hàng</a>
-					</div>
-				</div>
-			</div>
-		`
-		blockcaycanh.innerHTML  += itemcayHTML;
-	}
+	loadData(layDanhSachCay,blockcaycanh);
 	
 
 	//hanh dong tim kiem
@@ -36,27 +17,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	nutTimKiem.onclick = function(){
 
-		var cay = layDanhSachCay.filter(cayCanhNew => cayCanhNew.tencay == timKiemVl.value);
+		var cay = layDanhSachCay.filter(cayCanhNew => cayCanhNew.tencay.includes(timKiemVl.value));
 		// console.log(cay)
-		blockcaycanh.innerHTML = "";
+		loadData(cay,blockcaycanh);
 
-		for (var i = 0; i < cay.length; i++) {
-			var itemcaycanh = cay[i];
-
-			var itemcayHTML = `
-				<div class="col-md-4 item-caycanh mt-4">
-					<div class="card">
-						<img class="card-img-top" src="${itemcaycanh.linkanh}" alt="ảnh">
-						<div class="card-body">
-							<h5 class="card-title">${itemcaycanh.tencay}</h5>
-							<p class="card-text">Giá bán: ${itemcaycanh.gia}</p>
-							<a href="javascript:0;" class="btn btn-primary addtocart" onclick="coutUp()">Thêm vào giỏ hàng</a>
-						</div>
-					</div>
-				</div>
-			`
-			blockcaycanh.innerHTML  += itemcayHTML;
-		}
 	}
 
 	//hanh dong bam vao trang chu
@@ -64,27 +28,9 @@ document.addEventListener('DOMContentLoaded',function(){
 	var showTrangChu = document.getElementById('gohome');
 	showTrangChu.onclick = function(){
 
-		blockcaycanh.innerHTML = "";
-
-		for (var i = 0; i < layDanhSachCay.length; i++) {
-			var itemcaycanh = layDanhSachCay[i];
-
-			var itemcayHTML = `
-				<div class="col-md-4 item-caycanh mt-4">
-					<div class="card">
-						<img class="card-img-top" src="${itemcaycanh.linkanh}" alt="ảnh">
-						<div class="card-body">
-							<h5 class="card-title">${itemcaycanh.tencay}</h5>
-							<p class="card-text">Giá bán: ${itemcaycanh.gia}</p>
-							<a href="javascript:0;" class="btn btn-primary addtocart" onclick="coutUp()">Thêm vào giỏ hàng</a>
-						</div>
-					</div>
-				</div>
-			`
-			blockcaycanh.innerHTML  += itemcayHTML;
-		}
+		loadData(layDanhSachCay,blockcaycanh);
+		timKiemVl.value='';
 	}
-
 
 	// tang number 
 
@@ -95,9 +41,6 @@ document.addEventListener('DOMContentLoaded',function(){
 	// themVaoGioHang.onclick = function() {
 	  
 	// };
-
-
-
 	//chuyen trang gio hang
 
 	var nutChuyenTrangGioHang = document.getElementById('show-cart');
@@ -111,9 +54,62 @@ document.addEventListener('DOMContentLoaded',function(){
 
 var count = 0;
 	
-function coutUp(){
-	// console.log('msg')
+function coutUp(id){
+	 console.log(id)
 	
 	count += 1;
- 	document.getElementById("number-cart").innerHTML = "Giỏ hàng: " + count;
+
+	document.getElementById("number-cart").innerHTML = "Giỏ hàng: " + count;
+	var itemNew = {
+		id: id,
+		count: 1
+	};
+	 
+	var gioHang = JSON.parse(localStorage.getItem("gioHang"));
+
+	if(gioHang == null){
+
+		gioHang = [];
+		gioHang.push(itemNew);
+
+	}
+	else
+	{
+		var items = gioHang.filter(x => x.id == id);
+		if(items.length == 0)
+		{
+			gioHang.push(itemNew);
+		}
+		else{
+
+			items[0].count++;
+		}
+	}
+
+	localStorage.setItem("gioHang", JSON.stringify(gioHang));
+
+	//console.log(JSON.parse(localStorage.getItem("gioHang")))
+}
+
+function loadData(layDanhSachCay,blockcaycanh){
+
+	blockcaycanh.innerHTML = "";
+
+	for (var i = 0; i < layDanhSachCay.length; i++) {
+		var itemcaycanh = layDanhSachCay[i];
+
+		var itemcayHTML = `
+			<div class="col-md-4 item-caycanh mt-4">
+				<div class="card">
+					<img class="card-img-top" src="${itemcaycanh.linkanh}" alt="ảnh">
+					<div class="card-body">
+						<h5 class="card-title">${itemcaycanh.tencay}</h5>
+						<p class="card-text">Giá bán: ${itemcaycanh.gia}</p>
+						<a href="javascript:0;" class="btn btn-primary addtocart" onclick="coutUp(${itemcaycanh.id})">Thêm vào giỏ hàng</a>
+					</div>
+				</div>
+			</div>
+		`
+		blockcaycanh.innerHTML  += itemcayHTML;
+	}
 }
