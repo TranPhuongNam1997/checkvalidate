@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	//in tat ca cay canh ra man hinh
 	loadData(layDanhSachCay,blockcaycanh);
-	
+	gioHang = JSON.parse(localStorage.getItem("gioHang"));
+	demGioHang(gioHang);
 
 	//hanh dong tim kiem
 	var timKiemVl = document.getElementById('ip-search');
@@ -49,17 +50,22 @@ document.addEventListener('DOMContentLoaded',function(){
 		window.location.href = "pay.html";
 	}
 
+	// check su kien textbox tim kiem thay doi
+	timKiemVl.onkeypress = function(){
+		var cay = layDanhSachCay.filter(cayCanhNew => cayCanhNew.tencay.includes(timKiemVl.value));
+		// console.log(cay)
+		loadData(cay,blockcaycanh);
+	};
+
 });
 
 
 var count = 0;
 	
 function coutUp(id){
-	 console.log(id)
-	
-	count += 1;
 
-	document.getElementById("number-cart").innerHTML = "Giỏ hàng: " + count;
+	 //Xử lý khi thêm vào giỏ hàng
+
 	var itemNew = {
 		id: id,
 		count: 1
@@ -87,7 +93,8 @@ function coutUp(id){
 	}
 
 	localStorage.setItem("gioHang", JSON.stringify(gioHang));
-
+	 //Xử lý khi thêm vào giỏ hàng
+	demGioHang(gioHang)
 	//console.log(JSON.parse(localStorage.getItem("gioHang")))
 }
 
@@ -112,4 +119,15 @@ function loadData(layDanhSachCay,blockcaycanh){
 		`
 		blockcaycanh.innerHTML  += itemcayHTML;
 	}
+}
+
+function demGioHang(gioHang)
+{
+	console.log(gioHang);
+	if(gioHang == null){
+		gioHang = JSON.parse(localStorage.getItem("gioHang"));
+	}
+	var count = gioHang.length;
+	console.log(count);
+	document.getElementById("number-cart").innerHTML = "Giỏ hàng: " + count;
 }

@@ -31,31 +31,33 @@ function getDuLieu(){
 			tencay: "cây Sen đá",
 			gia: "500000",
 			linkanh: "https://tin.nhadat.net/assets/uploads/2017/09/y_nghia_cua_cay_si_1.jpg"
+		},
+		{
+			id: 6,
+			tencay: "Tiểu cảnh",
+			gia: "500000",
+			linkanh: "https://tin.nhadat.net/assets/uploads/2017/09/y_nghia_cua_cay_si_1.jpg"
 		}
-
-		
 	];
 	return cayCanh;
 }
 
-
-//khuan mau
-class cayCanh{
-	constructer(id,tencay,gia,linkanh){
-		this.id = id;
-		this.tencay = tencay;
-		this.gia = gia;
-		this.linkanh = linkanh;
-	}
-}
-
 document.addEventListener('DOMContentLoaded',function(){
-	
 	
 	if(localStorage.getItem("danhSachCayCanh") == null){
 		var danhSach = getDuLieu();
 		var newDanhSachString = JSON.stringify(danhSach);
 		localStorage.setItem("danhSachCayCanh", newDanhSachString);
 	}
-
 })
+
+function demGioHang(gioHang)
+{
+	console.log(gioHang);
+	if(gioHang == null){
+		gioHang = JSON.parse(localStorage.getItem("gioHang"));
+	}
+	var count = gioHang.length;
+	console.log(count);
+	document.getElementById("number-cart").innerHTML = "Giỏ hàng: " + count;
+}
